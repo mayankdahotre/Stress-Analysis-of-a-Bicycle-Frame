@@ -1,0 +1,24 @@
+# encoding: utf-8
+# 2025 R1
+SetScriptVersion(Version="25.1.122")
+template1 = GetTemplate(
+    TemplateName="Static Structural",
+    Solver="ANSYS")
+system1 = template1.CreateSystem()
+geometry1 = system1.GetContainer(ComponentName="Geometry")
+geometry1.Edit(IsDiscoveryGeometry=True)
+geometry1.Exit()
+geometry1.Edit()
+geometry1.Exit()
+geometry1.Edit()
+Save(Overwrite=True)
+geometry1.Exit()
+modelComponent1 = system1.GetComponent(Name="Model")
+modelComponent1.Refresh()
+model1 = system1.GetContainer(ComponentName="Model")
+model1.Edit()
+Extensions.AddToDefaultExtensions(Id="889cd46c-eaa9-41f1-a5fd-611012afb512")
+Extensions.LoadExtension(Id="889cd46c-eaa9-41f1-a5fd-611012afb512")
+model1.Exit()
+Save(Overwrite=True)
+Save(Overwrite=True)
